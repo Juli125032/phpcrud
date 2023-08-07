@@ -7,8 +7,8 @@
 
     if(isset($_GET['id'])){
         $txtid=(isset($_GET["id"])?$_GET["id"]:"");
-        $stm=$connection->prepare("DELETE FROM contacs WHRE id=:txtid");
-        $stm->bindParam(":id", $txtid);
+        $stm=$connection->prepare("DELETE FROM contacs WHERE id=:txtid");
+        $stm->bindParam(":txtid", $txtid);
         $stm->execute();
     
         header("location:index.php");
@@ -42,8 +42,8 @@
                 <td><?php echo $contact['phone']; ?></td>
                 <td><?php echo $contact['date']; ?></td>
                 <td>
-                    <a href="edit.php?id<?php echo $contact['id'];?>" class="btn btn-warning">Editar</a>
-                    <a href="index.php?id<?php echo $contact['id'];?>" class="btn btn-danger">Eliminar</a>
+                    <a href="edit.php?id=<?php echo $contact['id'];?>" class="btn btn-warning">Editar</a>
+                    <a href="index.php?id=<?php echo $contact['id'];?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
             <?php } ?>
